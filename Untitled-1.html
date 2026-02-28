@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Message From The Heart</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+    color: white;
+    overflow: hidden;
+    background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe') no-repeat center center/cover;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 0;
+}
+
+/* Proper Centering */
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 2;
+}
+
+.container {
+    max-width: 850px;
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 40px;
+    color: #ff6b81;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-weight: normal;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: floatUp 8s linear infinite;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Rain */
+.rain {
+    position: fixed;
+    width: 2px;
+    height: 15px;
+    background: rgba(255,255,255,0.3);
+    animation: rainFall linear infinite;
+    z-index: 1;
+}
+
+@keyframes rainFall {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+.start-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    font-size: 16px;
+    background: #ff6b81;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 3;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="wrapper">
+    <div class="container">
+        <h1>Never Choose One-Sided Love 💔</h1>
+        <h2>For Someone Special ❤️</h2>
+
+        <p>
+Love was never meant to be carried by one heart alone. One-sided love feels magical in the beginning — silent smiles, hidden hopes, late night thoughts 🌙 — but slowly it turns into emotional exhaustion. You start waiting for replies that never come, defending someone who barely notices your effort, giving loyalty where there is no commitment 😔.
+
+You lose pieces of yourself trying to prove your worth. You love harder thinking maybe they will love back. But love should never feel like a competition. It should never make you question your value 😞.
+
+Real love chooses you without hesitation. It stands beside you proudly. It matches your effort. It protects your peace 🤝. If someone truly cares, you won’t have to beg for their attention or decode mixed signals.
+
+Your heart is not a temporary stop for someone’s convenience 💎. It deserves certainty, respect, and equal passion. Never shrink yourself to fit into someone’s half-hearted affection.
+
+Choose dignity. Choose clarity. Choose mutual love. Because the right person will never make you feel alone while loving them ❤️.
+        </p>
+    </div>
+</div>
+
+<button class="start-btn" onclick="startExperience()">Click to Feel This Message ❤️</button>
+
+<audio id="bgMusic" loop>
+<source src="c:\Users\TEMP.CAPTAIN-NAVED-P.003\Desktop\virus'\Thinking_of_You_1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startExperience() {
+    document.querySelector(".start-btn").remove();
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.4;
+    music.play();
+    setInterval(createHeart, 800);
+    setInterval(createRain, 50);
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+}
+
+function createRain() {
+    const rain = document.createElement("div");
+    rain.classList.add("rain");
+    rain.style.left = Math.random() * 100 + "vw";
+    rain.style.animationDuration = (Math.random() * 1 + 0.5) + "s";
+    document.body.appendChild(rain);
+    setTimeout(() => rain.remove(), 2000);
+}
+</script>
+
+</body>
+</html>
